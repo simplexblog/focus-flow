@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Flow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Focus Flow</h1>
+      <p class="tagline">Un ciclo alla volta.</p>
+    </header>
+
+    <main class="layout">
+      <section class="timer-card" id="timerCard">
+        <div class="mode-switch">
+          <button class="mode-btn active" data-mode="work">Focus</button>
+          <button class="mode-btn" data-mode="short">Pausa breve</button>
+          <button class="mode-btn" data-mode="long">Pausa lunga</button>
+        </div>
+
+        <div class="ring-wrap">
+          <svg class="ring" width="260" height="260" viewBox="0 0 260 260">
+            <circle class="ring-bg" cx="130" cy="130" r="118"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="130" cy="130" r="118"></circle>
+          </svg>
+          <div class="ring-center">
+            <span class="time" id="timeDisplay">25:00</span>
+            <span class="state-label" id="stateLabel">Pronto</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="btn secondary" id="resetBtn" title="Reset">↺</button>
+          <button class="btn primary" id="startPauseBtn">Avvia</button>
+          <button class="btn secondary" id="skipBtn" title="Salta">⏭</button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-value" id="sessionsToday">0</span>
+            <span class="stat-label">sessioni oggi</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="cycleDots">●○○○</span>
+            <span class="stat-label">ciclo</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="focusMinutes">0m</span>
+            <span class="stat-label">focus totale</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tasks-card">
+        <h2>Cosa stai facendo?</h2>
+        <form id="taskForm" class="task-form">
+          <input type="text" id="taskInput" placeholder="Aggiungi un'attività…" autocomplete="off" maxlength="80">
+          <button type="submit" class="btn primary small">+</button>
+        </form>
+        <ul class="task-list" id="taskList"></ul>
+        <p class="empty-hint" id="emptyHint">Nessuna attività ancora. Aggiungine una per iniziare a concentrarti.</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span id="activeTaskEcho"></span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
